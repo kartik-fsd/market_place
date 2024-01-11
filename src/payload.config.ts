@@ -3,8 +3,12 @@ import { slateEditor } from "@payloadcms/richtext-slate";
 import { buildConfig } from "payload/config";
 import { webpackBundler } from "@payloadcms/bundler-webpack";
 import path from "path";
-import { Users } from "./app/collection/Users";
+import { Users } from "./collections/Users";
 import dotenv from "dotenv"
+import { Products } from "./collections/Products/Products";
+import { Media } from "./collections/Media";
+import { ProductFile } from "./collections/ProductFile";
+import { Orders } from "./collections/Orders/Orders";
 
 dotenv.config({
     path :path.resolve(__dirname,"../.env")
@@ -14,7 +18,7 @@ dotenv.config({
 
 export default buildConfig({
     serverURL : process.env.NEXT_PUBLIC_SERVER_URL || '',
-    collections :[Users],
+    collections :[Users,Products ,Media ,ProductFile,Orders],
     routes :{
         admin :"/sell",
     },
