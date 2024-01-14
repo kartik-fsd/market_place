@@ -50,7 +50,6 @@
   }
 }
 
- 
 @layer base {
   * {
     @apply border-border;
@@ -68,7 +67,7 @@
 }
 
 .swiper-pagination-bullet-active {
-  color : #fbfbfb;
-  background-color: white !important;
-  scale : 1 !important;
+  color: #fff;
+  background: white !important;
+  scale: 1 !important ;
 }

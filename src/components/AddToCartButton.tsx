@@ -1,32 +1,37 @@
-"use client";
+'use client'
 
-import { useEffect, useState } from "react";
-import { Button } from "./ui/button";
-import { useCart } from "@/hook/use-cart";
-import { Product } from "@/payload-types";
+import { useEffect, useState } from 'react'
+import { Button } from './ui/button'
+import { useCart } from '@/hooks/use-cart'
+import { Product } from '@/payload-types'
 
-export const AddToCartButton = ({ product }: { product: Product }) => {
-  const [isSuccess, setIsSuccess] = useState<boolean>(false);
-  const { addItem } = useCart();
+const AddToCartButton = ({
+  product,
+}: {
+  product: Product
+}) => {
+  const { addItem } = useCart()
+  const [isSuccess, setIsSuccess] = useState<boolean>(false)
 
   useEffect(() => {
-    const timeIndex = setTimeout(() => {
-      setIsSuccess(false);
-    }, 2000);
+    const timeout = setTimeout(() => {
+      setIsSuccess(false)
+    }, 2000)
 
-    return () => clearTimeout(timeIndex);
-  }, [isSuccess]);
+    return () => clearTimeout(timeout)
+  }, [isSuccess])
 
   return (
     <Button
-      size="lg"
-      className="w-full"
       onClick={() => {
         addItem(product)
         setIsSuccess(true)
       }}
-    >
-      {isSuccess ? "Added" : "Add to Cart"}
+      size='lg'
+      className='w-full'>
+      {isSuccess ? 'Added!' : 'Add to cart'}
     </Button>
-  );
-};
+  )
+}
+
+export default AddToCartButton

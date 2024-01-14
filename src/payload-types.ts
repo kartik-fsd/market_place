@@ -20,6 +20,8 @@ export interface Config {
 }
 export interface User {
   id: string;
+  products?: (string | Product)[] | null;
+  product_files?: (string | ProductFile)[] | null;
   role: 'admin' | 'user';
   updatedAt: string;
   createdAt: string;
@@ -40,7 +42,7 @@ export interface Product {
   name: string;
   description?: string | null;
   price: number;
-  category: 'UI Kits' | 'icons';
+  category: 'ui_kits' | 'icons';
   product_files: string | ProductFile;
   approvedForSale?: ('pending' | 'approved' | 'denied') | null;
   priceId?: string | null;
