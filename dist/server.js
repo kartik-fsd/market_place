@@ -74,7 +74,7 @@ var path_1 = __importDefault(require("path"));
 var url_1 = require("url");
 var cors_1 = __importDefault(require("cors"));
 var app = (0, express_1.default)();
-var PORT = Number(process.env.PORT) || 3000;
+var PORT = Number(process.env.PORT) || 5000;
 // Agrega el middleware cors con opciones específicas
 app.use((0, cors_1.default)({
     origin: process.env.NEXT_PUBLIC_SERVER_URL,

@@ -14,7 +14,7 @@ import { parse } from 'url'
 import cors from 'cors'; 
 
 const app = express()
-const PORT = Number(process.env.PORT) || 3000
+const PORT = Number(process.env.PORT) || 5000
 
 // Agrega el middleware cors con opciones específicas
 app.use(cors({
