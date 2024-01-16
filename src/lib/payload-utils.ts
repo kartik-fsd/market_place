@@ -27,7 +27,7 @@ export const getServerSideUser = async (
   
     return { user };
   } catch (error) {
-    console.error('Error al realizar la solicitud:', error);
+    console.error('Error when making request:', error);
     return { user: null };
   }
 }
