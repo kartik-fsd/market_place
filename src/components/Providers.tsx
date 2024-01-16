@@ -5,7 +5,7 @@ import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query'
-import { trpc } from '@/trpc/client'
+import { trpc } from '../trpc/client'
 import { httpBatchLink } from '@trpc/client'
 
 const Providers = ({ children }: PropsWithChildren) => {
