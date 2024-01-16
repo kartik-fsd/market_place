@@ -2,7 +2,7 @@
   "name": "market_place",
   "version": "0.1.0",
   "private": true,
-  "main" : "dist/server.js",
+  "main": "dist/server.js",
   "scripts": {
     "dev": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts nodemon",
     "generate:types": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts payload generate:types",
@@ -15,7 +15,7 @@
     "lint": "next lint"
   },
   "resolutions": {
-    "cliui" : "7.0.2"
+    "cliui": "7.0.2"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
@@ -59,6 +59,7 @@
     "zustand": "^4.4.7"
   },
   "devDependencies": {
+    "@tailwindcss/line-clamp": "^0.4.4",
     "@types/cors": "^2.8.17",
     "@types/express": "^4.17.21",
     "@types/node": "^20",
