@@ -4,6 +4,8 @@ Built with the Next.js 14 App Router, tRPC, TypeScript, Payload & Tailwind
 
 ![Project Image](https://github.com/kartik-fsd/market_place/blob/master/public/thumbnail.jpg)
 
+![Project UI/Image](https://github.com/kartik-fsd/market_place/blob/master/public/HippoDigitals.png)
+
 ## Features
 
 - 🛠️ Complete marketplace built from scratch in Next.js 14
