@@ -1,37 +1,49 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import { Button } from './ui/button'
-import { useCart } from '@/hooks/use-cart'
-import { Product } from '@/payload-types'
+import { useEffect, useState } from 'react';
+import { Button } from './ui/button';
+import { useCart } from '@/hooks/use-cart';
+import { Product } from '@/payload-types';
+import { toast } from 'sonner';
 
-const AddToCartButton = ({
-  product,
-}: {
-  product: Product
-}) => {
-  const { addItem } = useCart()
-  const [isSuccess, setIsSuccess] = useState<boolean>(false)
+const AddToCartButton = ({ product }: { product: Product }) => {
+  const { addItem, items } = useCart();
+  const [isSuccess, setIsSuccess] = useState<boolean>(false);
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      setIsSuccess(false)
-    }, 2000)
+    let timeout: NodeJS.Timeout;
 
-    return () => clearTimeout(timeout)
-  }, [isSuccess])
+    if (isSuccess) {
+      timeout = setTimeout(() => {
+        setIsSuccess(false);
+      }, 2000);
+    }
+
+    return () => clearTimeout(timeout);
+  }, [isSuccess]);
+
+  const handleAddToCart = (product: Product) => {
+    const isProductInCart = items.some((item) => item.product.id === product.id);
+
+    if (!isProductInCart) {
+      addItem(product);
+      setIsSuccess(true);
+      toast.success('Item added to cart');
+    } else {
+      toast.error('This item is already in the cart!');
+    }
+  };
 
   return (
     <Button
-      onClick={() => {
-        addItem(product)
-        setIsSuccess(true)
-      }}
+      onClick={() => handleAddToCart(product)}
       size='lg'
-      className='w-full'>
+      className='w-full'
+      disabled={isSuccess}
+    >
       {isSuccess ? 'Added!' : 'Add to cart'}
     </Button>
-  )
-}
+  );
+};
 
-export default AddToCartButton
+export default AddToCartButton;
